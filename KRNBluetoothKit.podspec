@@ -11,13 +11,13 @@ Pod::Spec.new do |s|
 
 
   s.author             = { "Julian Drapaylo" => "ulian.onua@gmail.com" }
-  s.social_media_url   = "https://www.linkedin.com/in/julian-drapaylo"
+#s.social_media_url   = "http://www.linkedin.com/in/julian-drapaylo"
 
 
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/ulian-onua/KRNBluetoothKit.git", :tag => "s.version.t" }
+  s.source       = { :git => "https://github.com/ulian-onua/KRNBluetoothKit.git", :tag => '0.0.1' }
 
 
   s.source_files  = "KRNBluetoothKit/*.{h,m}"
