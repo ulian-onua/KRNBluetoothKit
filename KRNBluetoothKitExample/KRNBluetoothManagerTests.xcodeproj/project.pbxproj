@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4441611B1DA0128E006FA016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4441611A1DA0128E006FA016 /* main.m */; };
+		4441611E1DA0128E006FA016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4441611D1DA0128E006FA016 /* AppDelegate.m */; };
+		444161211DA0128E006FA016 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 444161201DA0128E006FA016 /* ViewController.m */; };
+		444161241DA0128E006FA016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444161221DA0128E006FA016 /* Main.storyboard */; };
+		444161261DA0128E006FA016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444161251DA0128E006FA016 /* Assets.xcassets */; };
+		444161291DA0128E006FA016 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444161271DA0128E006FA016 /* LaunchScreen.storyboard */; };
+		4441613C1DA02FD4006FA016 /* BluetoothManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4441613B1DA02FD4006FA016 /* BluetoothManagerViewController.m */; };
+		447C78F11DA0F82E00300789 /* KRNAbstractBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78EC1DA0F82E00300789 /* KRNAbstractBluetoothManager.m */; };
+		447C78F21DA0F82E00300789 /* KRNCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78EE1DA0F82E00300789 /* KRNCentralManager.m */; };
+		447C78F31DA0F82E00300789 /* KRNPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78F01DA0F82E00300789 /* KRNPeripheralManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		444161161DA0128E006FA016 /* KRNBluetoothManagerTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRNBluetoothManagerTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4441611A1DA0128E006FA016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4441611C1DA0128E006FA016 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4441611D1DA0128E006FA016 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4441611F1DA0128E006FA016 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		444161201DA0128E006FA016 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		444161231DA0128E006FA016 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		444161251DA0128E006FA016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		444161281DA0128E006FA016 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4441612A1DA0128E006FA016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4441613A1DA02FD4006FA016 /* BluetoothManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothManagerViewController.h; sourceTree = "<group>"; };
+		4441613B1DA02FD4006FA016 /* BluetoothManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothManagerViewController.m; sourceTree = "<group>"; };
+		447C78EB1DA0F82E00300789 /* KRNAbstractBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNAbstractBluetoothManager.h; path = ../../KRNBluetoothKit/KRNAbstractBluetoothManager.h; sourceTree = "<group>"; };
+		447C78EC1DA0F82E00300789 /* KRNAbstractBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNAbstractBluetoothManager.m; path = ../../KRNBluetoothKit/KRNAbstractBluetoothManager.m; sourceTree = "<group>"; };
+		447C78ED1DA0F82E00300789 /* KRNCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNCentralManager.h; path = ../../KRNBluetoothKit/KRNCentralManager.h; sourceTree = "<group>"; };
+		447C78EE1DA0F82E00300789 /* KRNCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNCentralManager.m; path = ../../KRNBluetoothKit/KRNCentralManager.m; sourceTree = "<group>"; };
+		447C78EF1DA0F82E00300789 /* KRNPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNPeripheralManager.h; path = ../../KRNBluetoothKit/KRNPeripheralManager.h; sourceTree = "<group>"; };
+		447C78F01DA0F82E00300789 /* KRNPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNPeripheralManager.m; path = ../../KRNBluetoothKit/KRNPeripheralManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		444161131DA0128E006FA016 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4441610D1DA0128E006FA016 = {
+			isa = PBXGroup;
+			children = (
+				444161181DA0128E006FA016 /* KRNBluetoothManagerTests */,
+				444161171DA0128E006FA016 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		444161171DA0128E006FA016 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				444161161DA0128E006FA016 /* KRNBluetoothManagerTests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		444161181DA0128E006FA016 /* KRNBluetoothManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				444161391DA02F74006FA016 /* KRNBluetoothKit */,
+				4441611C1DA0128E006FA016 /* AppDelegate.h */,
+				4441611D1DA0128E006FA016 /* AppDelegate.m */,
+				4441611F1DA0128E006FA016 /* ViewController.h */,
+				444161201DA0128E006FA016 /* ViewController.m */,
+				444161221DA0128E006FA016 /* Main.storyboard */,
+				4441613A1DA02FD4006FA016 /* BluetoothManagerViewController.h */,
+				4441613B1DA02FD4006FA016 /* BluetoothManagerViewController.m */,
+				444161251DA0128E006FA016 /* Assets.xcassets */,
+				444161271DA0128E006FA016 /* LaunchScreen.storyboard */,
+				4441612A1DA0128E006FA016 /* Info.plist */,
+				444161191DA0128E006FA016 /* Supporting Files */,
+			);
+			path = KRNBluetoothManagerTests;
+			sourceTree = "<group>";
+		};
+		444161191DA0128E006FA016 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4441611A1DA0128E006FA016 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		444161391DA02F74006FA016 /* KRNBluetoothKit */ = {
+			isa = PBXGroup;
+			children = (
+				447C78EB1DA0F82E00300789 /* KRNAbstractBluetoothManager.h */,
+				447C78EC1DA0F82E00300789 /* KRNAbstractBluetoothManager.m */,
+				447C78ED1DA0F82E00300789 /* KRNCentralManager.h */,
+				447C78EE1DA0F82E00300789 /* KRNCentralManager.m */,
+				447C78EF1DA0F82E00300789 /* KRNPeripheralManager.h */,
+				447C78F01DA0F82E00300789 /* KRNPeripheralManager.m */,
+			);
+			name = KRNBluetoothKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		444161151DA0128E006FA016 /* KRNBluetoothManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4441612D1DA0128E006FA016 /* Build configuration list for PBXNativeTarget "KRNBluetoothManagerTests" */;
+			buildPhases = (
+				444161121DA0128E006FA016 /* Sources */,
+				444161131DA0128E006FA016 /* Frameworks */,
+				444161141DA0128E006FA016 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KRNBluetoothManagerTests;
+			productName = KRNBluetoothManagerTests;
+			productReference = 444161161DA0128E006FA016 /* KRNBluetoothManagerTests.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4441610E1DA0128E006FA016 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = ulian_onua;
+				TargetAttributes = {
+					444161151DA0128E006FA016 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = E8TPSF9L49;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 444161111DA0128E006FA016 /* Build configuration list for PBXProject "KRNBluetoothManagerTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4441610D1DA0128E006FA016;
+			productRefGroup = 444161171DA0128E006FA016 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				444161151DA0128E006FA016 /* KRNBluetoothManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		444161141DA0128E006FA016 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				444161291DA0128E006FA016 /* LaunchScreen.storyboard in Resources */,
+				444161261DA0128E006FA016 /* Assets.xcassets in Resources */,
+				444161241DA0128E006FA016 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		444161121DA0128E006FA016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447C78F11DA0F82E00300789 /* KRNAbstractBluetoothManager.m in Sources */,
+				447C78F31DA0F82E00300789 /* KRNPeripheralManager.m in Sources */,
+				447C78F21DA0F82E00300789 /* KRNCentralManager.m in Sources */,
+				444161211DA0128E006FA016 /* ViewController.m in Sources */,
+				4441611E1DA0128E006FA016 /* AppDelegate.m in Sources */,
+				4441613C1DA02FD4006FA016 /* BluetoothManagerViewController.m in Sources */,
+				4441611B1DA0128E006FA016 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		444161221DA0128E006FA016 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444161231DA0128E006FA016 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		444161271DA0128E006FA016 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444161281DA0128E006FA016 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4441612B1DA0128E006FA016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4441612C1DA0128E006FA016 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4441612E1DA0128E006FA016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8TPSF9L49;
+				INFOPLIST_FILE = KRNBluetoothManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ulian-onua.KRNBluetoothManagerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4441612F1DA0128E006FA016 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E8TPSF9L49;
+				INFOPLIST_FILE = KRNBluetoothManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ulian-onua.KRNBluetoothManagerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		444161111DA0128E006FA016 /* Build configuration list for PBXProject "KRNBluetoothManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4441612B1DA0128E006FA016 /* Debug */,
+				4441612C1DA0128E006FA016 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4441612D1DA0128E006FA016 /* Build configuration list for PBXNativeTarget "KRNBluetoothManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4441612E1DA0128E006FA016 /* Debug */,
+				4441612F1DA0128E006FA016 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4441610E1DA0128E006FA016 /* Project object */;
+}

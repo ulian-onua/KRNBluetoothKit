@@ -1,0 +1,21 @@
+//
+//  KRNPeripheralManager.h
+//  KRNBluetoothManagerTests
+//
+//  Created by ulian_onua on 01.10.16.
+//  Copyright © 2016 ulian_onua. All rights reserved.
+//
+
+
+#import "KRNAbstractBluetoothManager.h"
+
+@interface KRNPeripheralManager : KRNAbstractBluetoothManager
+
+@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+
+- (void)startAdvertising;
+
+@end
+
+
+
