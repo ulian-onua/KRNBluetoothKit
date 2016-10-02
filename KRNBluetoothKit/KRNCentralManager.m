@@ -14,6 +14,10 @@
 {
     dispatch_queue_t _bluetoothManagerQueue;  //queue for bluetooth
     CBCharacteristic* _remoteWriteCharacteristic;
+    BOOL _scanAndConnect; // should scan and connect if delegate message was called
+    KRNConnectionStateClosure _connectionCompletion;
+    KRNConnectionStateClosure _disconnectByUserCompletion;
+
 }
 @property (assign, nonatomic) KRNConnectionState connectionState;
 @end
@@ -21,7 +25,6 @@
 
 
 @implementation KRNCentralManager
-//@dynamic connectionState;
 
 @synthesize connectionState = _connectionState;
 
@@ -36,10 +39,35 @@
     return self;
 }
 
-- (void)scanAndConnectToPeripheral {
-    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:self.serviceUUIDString]] options:nil];
-     //   [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+- (void)scanAndConnectToPeripheral:(KRNConnectionStateClosure)completion {
+    _connectionCompletion = completion;
+    if (self.state == KRNBluetoothManagerStatePoweredOn) {
+        [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:self.serviceUUIDString]] options:nil];
+    } else {
+        _scanAndConnect = YES; //connect when state will be on
+    }
 }
+    
+- (void)stopScan {
+    //iOS 9+
+    if ([self.centralManager respondsToSelector:@selector(isScanning)]) {
+        if ([self.centralManager isScanning]) {
+            [self.centralManager stopScan];
+        }
+    } else { //iOS 8
+        [self.centralManager stopScan];
+    }
+}
+
+- (void)disconnectFromPeripheral:(KRNConnectionStateClosure)completion {
+    if (self.connectedPeripheral) {
+        _disconnectByUserCompletion = completion;
+        [self.centralManager cancelPeripheralConnection:self.connectedPeripheral];
+    } else {
+        completion(self.connectionState);
+    }
+}
+    
 - (void)sendPacket:(NSData *)packet {
     if (self.connectedPeripheral) {
         if (_remoteWriteCharacteristic) {
@@ -50,36 +78,22 @@
 }
 
 - (KRNBluetoothManagerState) state {
-    return [self getBluetoothManagerState:self.centralManager.state];
+    return [self convertToBluetoothManagerState:self.centralManager.state];
 }
 
 #pragma mark - Helpers -
 
-- (KRNBluetoothManagerState)getBluetoothManagerState:(CBManagerState)state {
-    switch (state) {
-        case CBManagerStateUnknown:
-            return KRNBluetoothManagerStateUnknown;
-            break;
-        case CBManagerStatePoweredOff:
-            return KRNBluetoothManagerStatePoweredOff;
-            break;
-        case CBManagerStatePoweredOn:
-            return KRNBluetoothManagerStatePoweredOn;
-            break;
-        case CBManagerStateUnsupported:
-            return KRNBluetoothManagerStateUnsupported;
-            break;
-        case CBManagerStateUnauthorized:
-            return KRNBluetoothManagerStateUnauthorized;
-            break;
-        default:
-            return KRNBluetoothManagerStateUnknown;
-    }
-}
+
 
 #pragma mark - CBCentralManagerDelegate -
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    if (self.state == KRNBluetoothManagerStatePoweredOn) {
+        if (_scanAndConnect) {
+            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:self.serviceUUIDString]] options:nil];
+            _scanAndConnect = NO;
+        }
+    }
     if (self.updateStateCompletion) {
         self.updateStateCompletion(self.state);
     }
@@ -103,6 +117,7 @@
     }
     
     self.connectionState = KRNConnectionStateConnected;
+    
     _connectedPeripheral = peripheral;
     _connectedPeripheral.delegate = self;
     [_connectedPeripheral discoverServices:@[[CBUUID UUIDWithString:self.serviceUUIDString]]];
@@ -110,16 +125,20 @@
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
     
-    if (!error) {  // if disconnect not by user - try reconnect
+    self.connectionState = KRNConnectionStateDisconnected;
+
+    if (error) {  // if disconnect not by user - try reconnect
         if (KRNBluetoothManagerDebugMode) {
             NSLog(@"Disconnect peripheral. Trying reconnect");
         }
-        self.connectionState = KRNConnectionStateDisconnected;
         [self.centralManager connectPeripheral:_connectedPeripheral options:nil];
     } else {
        
         if (self.disconnectCompletion) {
             self.disconnectCompletion();
+        }
+        if (_disconnectByUserCompletion) {
+            _disconnectByUserCompletion(self.connectionState);
         }
     }
     
@@ -141,6 +160,11 @@
                     [self.connectedPeripheral setNotifyValue:YES forCharacteristic:characteristic];
                 } else if ([characteristic.UUID.UUIDString isEqualToString:self.writeCharacteristicUUIDString]) {
                     _remoteWriteCharacteristic = characteristic;
+                    //call connection completion after discovering all characteristics
+                    if (_connectionCompletion) {
+                        _connectionCompletion (self.connectionState);
+                    }
+                    [self sendPacket:[KRNBluetoothMessages connectionMessage]];
                 }
             }
         }

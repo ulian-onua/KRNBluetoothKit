@@ -12,8 +12,10 @@
 @interface KRNPeripheralManager : KRNAbstractBluetoothManager
 
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (assign, nonatomic, readonly) BOOL advertising; //current status of advertising
 
-- (void)startAdvertising;
+- (void)startAdvertising:(KRNConnectionStateClosure)completion;
+- (void)stopAdvertising;
 
 @end
 

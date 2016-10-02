@@ -13,7 +13,11 @@
 @property (strong, nonatomic, readonly) CBCentralManager* centralManager;
 @property (strong, nonatomic, readonly) CBPeripheral* connectedPeripheral;
 
-- (void)scanAndConnectToPeripheral; //scan and connect to peripheral
+- (void)scanAndConnectToPeripheral:(KRNConnectionStateClosure)completion; //scan and connect to peripheral
+- (void)stopScan; //stop scan
+    
+- (void)disconnectFromPeripheral:(KRNConnectionStateClosure)completion; //completion called if disconnected
+
 
 @end
 

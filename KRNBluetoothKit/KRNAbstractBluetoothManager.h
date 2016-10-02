@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "KRNBluetoothMessages.h"
 
 static BOOL KRNBluetoothManagerDebugMode = YES;
 
@@ -27,8 +28,10 @@ typedef enum : NSUInteger {
 
 
 typedef void(^KRNCompletionClosure)(void);
+typedef void(^KRNConnectionStateClosure) (KRNConnectionState state);
 typedef void(^KRNUpdateStateClosure)(KRNBluetoothManagerState state);
 typedef void(^KRNGetDataBlock)(NSData* data);
+
 
 
 
@@ -46,12 +49,15 @@ typedef void(^KRNGetDataBlock)(NSData* data);
 @property (strong, nonatomic, readonly) NSString *serviceUUIDString;
 @property (strong, nonatomic, readonly) NSString *writeCharacteristicUUIDString;
 @property (strong, nonatomic, readonly) NSString *readCharacteristicUUIDString;
-
+    
 
 
 - (instancetype) initWithServiceUUID:(NSString *)serviceUUID writeCharacteristicUUID:(NSString *)writeCharUUID andReadCharacteristicUUID:(NSString *)readCharUUID;
 
 - (void)sendPacket:(NSData *)packet; //send packet to remote bluetooth. Abstract Method that must be overriden by classes that inherit from this class
+    
+//convert CBManagerState to KRNBluetoothManagerState
+- (KRNBluetoothManagerState)convertToBluetoothManagerState:(CBManagerState)state;
 
 
 @end

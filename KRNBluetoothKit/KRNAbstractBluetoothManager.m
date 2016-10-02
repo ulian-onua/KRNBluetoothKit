@@ -23,6 +23,7 @@
         _serviceUUIDString = [serviceUUID copy];
         _writeCharacteristicUUIDString = [writeCharUUID copy];
         _readCharacteristicUUIDString = [readCharUUID copy];
+        _connectionState = KRNConnectionStateDisconnected;
     }
     return self;
 }
@@ -38,6 +39,29 @@
     if ([self isMemberOfClass:[KRNAbstractBluetoothManager class]]) {
         [NSException raise:NSInternalInconsistencyException
                     format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
+    }
+}
+    
+#pragma mark - Convert to Bluetooth Manager State -
+- (KRNBluetoothManagerState)convertToBluetoothManagerState:(CBManagerState)state {
+    switch (state) {
+        case CBManagerStateUnknown:
+        return KRNBluetoothManagerStateUnknown;
+        break;
+        case CBManagerStatePoweredOff:
+        return KRNBluetoothManagerStatePoweredOff;
+        break;
+        case CBManagerStatePoweredOn:
+        return KRNBluetoothManagerStatePoweredOn;
+        break;
+        case CBManagerStateUnsupported:
+        return KRNBluetoothManagerStateUnsupported;
+        break;
+        case CBManagerStateUnauthorized:
+        return KRNBluetoothManagerStateUnauthorized;
+        break;
+        default:
+        return KRNBluetoothManagerStateUnknown;
     }
 }
 
