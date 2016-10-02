@@ -38,19 +38,20 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.outgoingMessageTextField.delegate = self;
-    
+    _connectionStatusLabel.text = @"NOT CONNECTED";
     
     // Do any additional setup after loading the view.
     if (self.managerMode == KRNPeripheralMode) {
         self.connectButton.hidden = YES;
-        self.connectionStatusLabel.hidden = YES;
+
         self.bluetoothManager = [[KRNPeripheralManager alloc]initWithServiceUUID:kServiceUUID writeCharacteristicUUID:kWriteCharacteristicUUID andReadCharacteristicUUID:kReadCharacteristicUUID];
         
     } else {
         self.bluetoothManager = [[KRNCentralManager alloc] initWithServiceUUID:kServiceUUID writeCharacteristicUUID:kWriteCharacteristicUUID andReadCharacteristicUUID:kReadCharacteristicUUID];
 ;
-        [self addObserver:self forKeyPath:@"self.bluetoothManager.connectionState" options:NSKeyValueObservingOptionNew context:NULL];
+       
     }
+     [self addObserver:self forKeyPath:@"self.bluetoothManager.connectionState" options:NSKeyValueObservingOptionNew context:NULL];
     
     __weak typeof(self) weakSelf = self;
     
@@ -67,7 +68,16 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
 
 - (void) viewDidAppear:(BOOL)animated {
     if (self.managerMode == KRNPeripheralMode) {
-        [((KRNPeripheralManager *)self.bluetoothManager)startAdvertising];
+        [((KRNPeripheralManager *)self.bluetoothManager)startAdvertising:^(KRNConnectionState state) {
+            if (state == KRNConnectionStateConnected) {
+                
+                NSString *helloMessage = [NSString stringWithFormat:@"HELLO FROM %@", [UIDevice currentDevice].name];
+                
+                NSData *packet = [helloMessage dataUsingEncoding:NSUTF8StringEncoding];
+                
+                [self.bluetoothManager sendPacket:packet];
+            }
+        }];
     }
 }
 - (void) viewWillDisappear:(BOOL)animated {
@@ -90,7 +100,14 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
 #pragma mark - Actions -
 
 - (IBAction)connect:(id)sender {
-    [((KRNCentralManager *)self.bluetoothManager) scanAndConnectToPeripheral];
+    [((KRNCentralManager *)self.bluetoothManager) scanAndConnectToPeripheral:^(KRNConnectionState state) {
+        if (state == KRNConnectionStateConnected) {
+            NSString *helloMessage = [NSString stringWithFormat:@"HELLO FROM %@", [UIDevice currentDevice].name];
+            NSData *packet = [helloMessage dataUsingEncoding:NSUTF8StringEncoding];
+
+            [self.bluetoothManager sendPacket:packet];
+        }
+    }];
 }
 - (IBAction)sendMessage:(id)sender {
     NSData *packet = [self.outgoingMessageTextField.text dataUsingEncoding:NSUTF8StringEncoding];

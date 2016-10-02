@@ -6,6 +6,14 @@ It will take you a few minutes to set up this lib and use it without no need of 
 Specifications of Bluetooth 4.0 LE base on relationship between central and peripheral devices. Peripheral devices advertise some data and allow to be connected to. In contrast, central devices scan for advertising peripherals and are able to connect them.
 KRNBluetoothKit requires that one iOS-device will play role of central device whereas other iOS-device will play role of peripheral device. Every of those devices after connection are able to send NSData messages to another device.
 
+
+## Installation
+####CocoaPods
+
+(Unfamiliar with [CocoaPods](http://cocoapods.org/) yet? It's a dependency management tool for iOS and Mac, check it out!)
+
+Just add `pod 'KRNBluetoothKit'` to your Podfile and run 'pod install' in Terminal from your project folder.
+
 ## How to set up and use
 
 ##### 1. Create UUID Strings for service and characteristics and use these strings for managers initialization.
@@ -29,19 +37,23 @@ self.centralManager = [[KRNPeripheralManager alloc]initWithServiceUUID:kServiceU
 ```
 ##### 2. Play the role of peripheral iOS device
 If you want that central device will be able to connect to you peripheral device you should start advertising.
-Before starting adversting you should set up the block that is handler for incoming message from central device.
+Before starting advertising you should set up the block that is handler for incoming message from central device.
 ```objc
 self.bluetoothManager.getMessageCompletion = ^(NSData *message) {
 NSLog(@"Incoming message = %@", message);
 //write custom code here to handle and parse incoming message from central device
 };
 ```
-After that you start advertising:
+After that you start advertising with completion handler that called after remote central was connected:
 ```objc
-[self.bluetoothManager startAdvertising];
+[self.bluetoothManager startAdvertising:^(KRNConnectionState state) {
+    if (state == KRNConnectionStateConnected) {
+     // remote central connected
+     // you are able to send data                   
+    }
+}];
 ```
-Core Bluetooth Framework doesn’t allow to handle event if central device connected. So after connection you will not be notified but all incoming NSData messages will be handled in getMessageCompletion block.
-Use sendPacket: method to send packets to central device:
+Аfter connection use sendPacket: method to send packets to central device:
 ```objc
 [self.bluetoothManager sendPacket:somePacket];
 ```
@@ -59,11 +71,17 @@ NSLog(@"Incoming message = %@", message);
 };
 ```
 
-After creating and initialization the instance of KRNCentralManager call next method to scan and connect to peripheral, that you set up in Step 2.
+After creating and initialization the instance of KRNCentralManager, setting getMessageCompletion handler call next method to scan and connect to peripheral, that you set up in Step 2.
 ```objc
-[self.bluetoothManager scanAndConnectToPeripheral];
+[self.bluetoothManager scanAndConnectToPeripheral:^(KRNConnectionState state) {
+    if (state == KRNConnectionStateConnected) {
+     // connected to remote peripheral
+     // you are able to send data 
+    }
+}];
 ```
-If KRNCentralManager discovers appropriate peripheral devices it will automatically connect it. You may observe, using KVO, property connectionState of KRNCentralManager to handle changing of connection status (connected / not connected).
+If KRNCentralManager discovers appropriate peripheral device it will automatically connect it. Completion will be called. 
+You may also observe, using KVO, property connectionState of KRNCentralManager instance to handle changing of connection status (connected / not connected).
 
 Use sendPacket: method to send packets to peripheral device:
 ```objc
