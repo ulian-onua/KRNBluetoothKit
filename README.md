@@ -8,7 +8,7 @@ KRNBluetoothKit requires that one iOS-device will play role of central device wh
 
 ## How to set up and use
 
-##### 1. Create UUID Strings for service and characteristics and use that strings for managers initialization.
+##### 1. Create UUID Strings for service and characteristics and use these strings for managers initialization.
 You must have or create UUIDs strings for service, write and read characteristics. These values must be passed during initialization or central or peripheral manager to method  initWithServiceUUID:writeCharacteristicUUID:andReadCharacteristicUUID .
 
 To create UUID codes open terminal in your macOS and use command «uuidgen» to generate new, with very possibility unique, UUID code. If you still don’t have UUID codes just generate three new codes and use it for managers initialization.

@@ -6,8 +6,8 @@
 //  Copyright © 2016 ulian_onua. All rights reserved.
 //
 
-@import Foundation;
-@import CoreBluetooth;
+#import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 static BOOL KRNBluetoothManagerDebugMode = YES;
 
