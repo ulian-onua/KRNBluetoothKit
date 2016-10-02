@@ -7,7 +7,6 @@
 //
 
 @import Foundation;
-@import UIKit;
 @import CoreBluetooth;
 
 static BOOL KRNBluetoothManagerDebugMode = YES;
