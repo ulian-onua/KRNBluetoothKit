@@ -15,7 +15,7 @@
 		444161291DA0128E006FA016 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444161271DA0128E006FA016 /* LaunchScreen.storyboard */; };
 		4441613C1DA02FD4006FA016 /* BluetoothManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4441613B1DA02FD4006FA016 /* BluetoothManagerViewController.m */; };
 		445CAD111DA14092006048CD /* KRNBluetoothMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 445CAD101DA14092006048CD /* KRNBluetoothMessages.m */; };
-		445CAD181DA26FEE006048CD /* KRNBluetoothKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 445CAD171DA26FED006048CD /* KRNBluetoothKit.m */; };
+		445CAD1B1DA27761006048CD /* KRNBluetoothKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 445CAD1A1DA27761006048CD /* KRNBluetoothKit.m */; };
 		447C78F11DA0F82E00300789 /* KRNAbstractBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78EC1DA0F82E00300789 /* KRNAbstractBluetoothManager.m */; };
 		447C78F21DA0F82E00300789 /* KRNCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78EE1DA0F82E00300789 /* KRNCentralManager.m */; };
 		447C78F31DA0F82E00300789 /* KRNPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447C78F01DA0F82E00300789 /* KRNPeripheralManager.m */; };
@@ -36,8 +36,8 @@
 		4441613B1DA02FD4006FA016 /* BluetoothManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothManagerViewController.m; sourceTree = "<group>"; };
 		445CAD0F1DA14092006048CD /* KRNBluetoothMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNBluetoothMessages.h; path = ../../KRNBluetoothKit/KRNBluetoothMessages.h; sourceTree = "<group>"; };
 		445CAD101DA14092006048CD /* KRNBluetoothMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNBluetoothMessages.m; path = ../../KRNBluetoothKit/KRNBluetoothMessages.m; sourceTree = "<group>"; };
-		445CAD161DA26FED006048CD /* KRNBluetoothKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNBluetoothKit.h; sourceTree = "<group>"; };
-		445CAD171DA26FED006048CD /* KRNBluetoothKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNBluetoothKit.m; sourceTree = "<group>"; };
+		445CAD191DA27761006048CD /* KRNBluetoothKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNBluetoothKit.h; path = ../../KRNBluetoothKit/KRNBluetoothKit.h; sourceTree = "<group>"; };
+		445CAD1A1DA27761006048CD /* KRNBluetoothKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNBluetoothKit.m; path = ../../KRNBluetoothKit/KRNBluetoothKit.m; sourceTree = "<group>"; };
 		447C78EB1DA0F82E00300789 /* KRNAbstractBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNAbstractBluetoothManager.h; path = ../../KRNBluetoothKit/KRNAbstractBluetoothManager.h; sourceTree = "<group>"; };
 		447C78EC1DA0F82E00300789 /* KRNAbstractBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KRNAbstractBluetoothManager.m; path = ../../KRNBluetoothKit/KRNAbstractBluetoothManager.m; sourceTree = "<group>"; };
 		447C78ED1DA0F82E00300789 /* KRNCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KRNCentralManager.h; path = ../../KRNBluetoothKit/KRNCentralManager.h; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 				447C78EE1DA0F82E00300789 /* KRNCentralManager.m */,
 				447C78EF1DA0F82E00300789 /* KRNPeripheralManager.h */,
 				447C78F01DA0F82E00300789 /* KRNPeripheralManager.m */,
-				445CAD161DA26FED006048CD /* KRNBluetoothKit.h */,
-				445CAD171DA26FED006048CD /* KRNBluetoothKit.m */,
+				445CAD191DA27761006048CD /* KRNBluetoothKit.h */,
+				445CAD1A1DA27761006048CD /* KRNBluetoothKit.m */,
 			);
 			name = KRNBluetoothKit;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 				447C78F21DA0F82E00300789 /* KRNCentralManager.m in Sources */,
 				444161211DA0128E006FA016 /* ViewController.m in Sources */,
 				4441611E1DA0128E006FA016 /* AppDelegate.m in Sources */,
-				445CAD181DA26FEE006048CD /* KRNBluetoothKit.m in Sources */,
+				445CAD1B1DA27761006048CD /* KRNBluetoothKit.m in Sources */,
 				4441613C1DA02FD4006FA016 /* BluetoothManagerViewController.m in Sources */,
 				4441611B1DA0128E006FA016 /* main.m in Sources */,
 			);
