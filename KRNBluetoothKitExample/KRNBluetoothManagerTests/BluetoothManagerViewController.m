@@ -6,10 +6,8 @@
 //  Copyright © 2016 ulian_onua. All rights reserved.
 //
 
-@import CoreBluetooth;
 
-#import "KRNCentralManager.h"
-#import "KRNPeripheralManager.h"
+#import "KRNBluetoothKit.h"
 
 #import "BluetoothManagerViewController.h"
 
