@@ -2,7 +2,7 @@ KRNBluetoothKit
 ===============
 
 KRNBluetoothKit is a simple library for fast interaction between two iOS bluetooth devices using Bluetooth 4.0 LE.
-It will take you a few minutes to set up this lib and use it without no need of deep knowledge of Core Bluetooth Framework.
+It will take you a few minutes to set up this lib and use it without need of deep knowledge of Core Bluetooth Framework.
 Specifications of Bluetooth 4.0 LE base on relationship between central and peripheral devices. Peripheral devices advertise some data and allow to be connected to. In contrast, central devices scan for advertising peripherals and are able to connect them.
 KRNBluetoothKit requires that one iOS-device will play role of central device whereas other iOS-device will play role of peripheral device. Every of those devices after connection are able to send NSData messages to another device.
 
@@ -12,7 +12,12 @@ KRNBluetoothKit requires that one iOS-device will play role of central device wh
 
 (Unfamiliar with [CocoaPods](http://cocoapods.org/) yet? It's a dependency management tool for iOS and Mac, check it out!)
 
-Just add `pod 'KRNBluetoothKit'` to your Podfile and run 'pod install' in Terminal from your project folder.
+Just add `pod 'KRNBluetoothKit'` to your Podfile and run `pod install` in Terminal from your project folder.
+
+Write `#import "KRNBluetoothKit.h"` in files where you need to use lib classes. You can allocate and initialize instances of KRNCentralManager and/or KRNPeripheralManager.
+
+#####  Important
+An iOS app linked **on or after iOS 10.0** must include in its Info.plist file the usage description keys for the types of data it needs to access or it will crash. To use methods of Core Bluetooth Framework and respectively KRNBluetoothKit **you must add to Info.plist NSBluetoothPeripheralUsageDescription key** (key's type is string) which value that you provide for this key is displayed as part of the alert which the system prompts the user to allow usage of Bluetooth.
 
 ## How to set up and use
 
