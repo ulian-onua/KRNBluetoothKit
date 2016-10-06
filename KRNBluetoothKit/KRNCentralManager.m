@@ -147,8 +147,10 @@
 #pragma mark - CBPeripheralDelegate -
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error {
-    if (!error) {
-        [peripheral discoverCharacteristics:nil forService:peripheral.services.firstObject];
+    if (!error && peripheral.services) {
+        if (peripheral.services.count > 0) {
+            [peripheral discoverCharacteristics:nil forService:peripheral.services.firstObject];
+        }
     }
 }
 
