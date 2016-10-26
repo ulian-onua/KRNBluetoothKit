@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9ZR-7w-ZT1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9ZR-7w-ZT1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -97,22 +97,38 @@
                                     <action selector="connect:" destination="owE-3C-Azb" eventType="touchUpInside" id="aZ6-d4-ktG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfJ-eM-yQu">
+                                <state key="normal" title="Read RSSI"/>
+                                <connections>
+                                    <action selector="readRSSI:" destination="owE-3C-Azb" eventType="touchUpInside" id="hbL-jG-jyQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuE-oE-3Z8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FHY-G2-t3i" firstAttribute="leading" secondItem="4Uw-RR-FZb" secondAttribute="leading" id="3NZ-uG-alJ"/>
                             <constraint firstItem="FHY-G2-t3i" firstAttribute="trailing" secondItem="4Uw-RR-FZb" secondAttribute="trailing" id="9Pi-Wn-G9C"/>
+                            <constraint firstItem="HuE-oE-3Z8" firstAttribute="width" secondItem="9jn-XU-ZS4" secondAttribute="width" multiplier="0.5" id="EpY-xT-Maj"/>
                             <constraint firstItem="74b-sN-93m" firstAttribute="top" secondItem="HZz-kR-tnn" secondAttribute="bottom" constant="20" id="F1g-1p-A9n"/>
+                            <constraint firstItem="HuE-oE-3Z8" firstAttribute="centerY" secondItem="gfJ-eM-yQu" secondAttribute="centerY" id="Ftn-We-37O"/>
                             <constraint firstItem="4Uw-RR-FZb" firstAttribute="centerY" secondItem="9jn-XU-ZS4" secondAttribute="centerY" id="LCK-aR-GPF"/>
+                            <constraint firstItem="gfJ-eM-yQu" firstAttribute="leading" secondItem="4Uw-RR-FZb" secondAttribute="leading" id="QeK-QM-176"/>
                             <constraint firstItem="HZz-kR-tnn" firstAttribute="centerX" secondItem="4Uw-RR-FZb" secondAttribute="centerX" id="Rhl-XO-rdC"/>
                             <constraint firstItem="74b-sN-93m" firstAttribute="centerX" secondItem="HZz-kR-tnn" secondAttribute="centerX" id="TpB-VG-Efy"/>
                             <constraint firstItem="Osq-7K-zdq" firstAttribute="leading" secondItem="4Uw-RR-FZb" secondAttribute="leading" id="bfO-WV-R6n"/>
                             <constraint firstItem="4Uw-RR-FZb" firstAttribute="centerX" secondItem="9jn-XU-ZS4" secondAttribute="centerX" id="cMG-RJ-jgP"/>
+                            <constraint firstItem="HuE-oE-3Z8" firstAttribute="leading" secondItem="gfJ-eM-yQu" secondAttribute="trailing" constant="17" id="gbM-nr-qw6"/>
                             <constraint firstItem="4Uw-RR-FZb" firstAttribute="top" secondItem="Osq-7K-zdq" secondAttribute="bottom" constant="40" id="k5x-W7-jl5"/>
                             <constraint firstItem="Osq-7K-zdq" firstAttribute="trailing" secondItem="4Uw-RR-FZb" secondAttribute="trailing" id="mGV-7M-FvW"/>
                             <constraint firstItem="4Uw-RR-FZb" firstAttribute="width" secondItem="9jn-XU-ZS4" secondAttribute="width" multiplier="0.8" id="rC1-0a-olG"/>
                             <constraint firstItem="HZz-kR-tnn" firstAttribute="top" secondItem="4Uw-RR-FZb" secondAttribute="bottom" constant="21.5" id="sdk-2f-Vb3"/>
                             <constraint firstItem="4Uw-RR-FZb" firstAttribute="top" secondItem="FHY-G2-t3i" secondAttribute="bottom" constant="11" id="wD8-vd-JKB"/>
+                            <constraint firstItem="gfJ-eM-yQu" firstAttribute="top" secondItem="74b-sN-93m" secondAttribute="bottom" constant="30" id="xbV-3E-gQB"/>
                         </constraints>
                     </view>
                     <connections>
@@ -120,6 +136,8 @@
                         <outlet property="connectionStatusLabel" destination="Osq-7K-zdq" id="7fc-0J-cje"/>
                         <outlet property="incomingMessageLabel" destination="FHY-G2-t3i" id="lXm-Nk-haf"/>
                         <outlet property="outgoingMessageTextField" destination="4Uw-RR-FZb" id="yxK-Mi-wZ0"/>
+                        <outlet property="readRSSIButton" destination="gfJ-eM-yQu" id="mFv-lb-zUt"/>
+                        <outlet property="rssiValueLabel" destination="HuE-oE-3Z8" id="9cq-Ln-rWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLF-ei-dW8" userLabel="First Responder" sceneMemberID="firstResponder"/>

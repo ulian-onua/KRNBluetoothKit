@@ -8,6 +8,8 @@
 
 #import "KRNAbstractBluetoothManager.h"
 
+typedef void(^KRNReadRSSIClosure)(NSInteger RSSIValue, NSError* error);
+
 @interface KRNCentralManager : KRNAbstractBluetoothManager
 
 @property (strong, nonatomic, readonly) CBCentralManager* centralManager;
@@ -15,7 +17,9 @@
 
 - (void)scanAndConnectToPeripheral:(KRNConnectionStateClosure)completion; //scan and connect to peripheral
 - (void)stopScan; //stop scan
-    
+
+- (BOOL)readPeripheralsRSSI:(KRNReadRSSIClosure)completion;  //return NO if device is not connected
+
 - (void)disconnectFromPeripheral:(KRNConnectionStateClosure)completion; //completion called if disconnected
 
 

@@ -17,6 +17,7 @@
     BOOL _scanAndConnect; // should scan and connect if delegate message was called
     KRNConnectionStateClosure _connectionCompletion;
     KRNConnectionStateClosure _disconnectByUserCompletion;
+    KRNReadRSSIClosure _readRSSIClosure;
 
 }
 @property (assign, nonatomic) KRNConnectionState connectionState;
@@ -56,6 +57,16 @@
         }
     } else { //iOS 8
         [self.centralManager stopScan];
+    }
+}
+
+- (BOOL)readPeripheralsRSSI:(void(^)(NSInteger RSSIValue, NSError* error))completion {
+    if (self.connectionState == KRNConnectionStateConnected) {
+        _readRSSIClosure = completion;
+        [self.connectedPeripheral readRSSI];
+        return YES;
+    } else {
+        return NO;
     }
 }
 
@@ -182,6 +193,12 @@
                 }
             }
         }
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(nullable NSError *)error {
+    if (_readRSSIClosure) {
+        _readRSSIClosure(RSSI.integerValue, error); //call closure
     }
 }
 

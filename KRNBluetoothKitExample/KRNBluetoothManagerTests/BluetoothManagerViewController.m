@@ -26,6 +26,10 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
 
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *readRSSIButton;
+@property (weak, nonatomic) IBOutlet UILabel *rssiValueLabel;
+
+
 
 @property (strong, nonatomic) KRNAbstractBluetoothManager *bluetoothManager;
 
@@ -112,6 +116,19 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
     [self.bluetoothManager sendPacket:packet];
 }
 
+- (IBAction)readRSSI:(id)sender {
+    if (self.managerMode == KRNCentralMode) {
+        KRNCentralManager *manager = (KRNCentralManager *) self.bluetoothManager;
+        [manager readPeripheralsRSSI:^(NSInteger RSSIValue, NSError *error) {
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _rssiValueLabel.text = [NSString stringWithFormat:@"%ld", (long)RSSIValue];
+                    
+                });
+            }
+        }];
+    }
+}
 
 #pragma mark - UITextFieldDelegate -
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
