@@ -117,12 +117,14 @@ static NSString* const kReadCharacteristicUUID = @"7BFC528D-1857-4EFE-8C28-392A5
 }
 
 - (IBAction)readRSSI:(id)sender {
+    __weak typeof(self) weakSelf = self;
+
     if (self.managerMode == KRNCentralMode) {
         KRNCentralManager *manager = (KRNCentralManager *) self.bluetoothManager;
         [manager readPeripheralsRSSI:^(NSInteger RSSIValue, NSError *error) {
             if (!error) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _rssiValueLabel.text = [NSString stringWithFormat:@"%ld", (long)RSSIValue];
+                    weakSelf.rssiValueLabel.text = [NSString stringWithFormat:@"%ld", (long)RSSIValue];
                     
                 });
             }

@@ -75,7 +75,9 @@
         _disconnectByUserCompletion = completion;
         [self.centralManager cancelPeripheralConnection:self.connectedPeripheral];
     } else {
-        completion(self.connectionState);
+        if (completion) {
+            completion(self.connectionState);
+        }
     }
 }
     
@@ -175,7 +177,7 @@
                     _remoteWriteCharacteristic = characteristic;
                     //call connection completion after discovering all characteristics
                     if (_connectionCompletion) {
-                        _connectionCompletion (self.connectionState);
+                        _connectionCompletion(self.connectionState);
                     }
                     [self sendPacket:[KRNBluetoothMessages connectionMessage]];
                 }

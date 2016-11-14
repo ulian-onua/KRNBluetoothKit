@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KRNBluetoothKit"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "The lib to simplify usage of CoreBluetooth framework"
 
   s.homepage     = "https://github.com/ulian-onua/KRNBluetoothKit"
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/ulian-onua/KRNBluetoothKit.git", :tag => "0.0.7" }
+  s.source       = { :git => "https://github.com/ulian-onua/KRNBluetoothKit.git", :tag => "0.0.8" }
 
 
   s.source_files  = "KRNBluetoothKit/*.{h,m}"
